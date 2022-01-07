@@ -34,7 +34,7 @@ const saveCSV = async (name, data) => {
 };
 const main = async () => {
     const names = await getAllPmNames();
-    writeFile('pmlist.txt', names.join('\n'));
+    writeFile('dataset/pmlist.txt', names.join('\n'));
     const pmInfo = await Promise.all(names.map((name) => limit(getPmInfo, name)));
 
     await saveCSV('pm', pmInfo);

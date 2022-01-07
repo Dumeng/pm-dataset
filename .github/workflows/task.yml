@@ -23,5 +23,9 @@ jobs:
         run: node index.js
 
       - name: Commit Changes
-        run: git add -A && git commit --author="Github Actions <actions@github.com>" -m "Refresh Dataset [$(date '+%F %T %z')]" && git push
+        run: |
+          git config --global user.name 'Github Actions'
+          git config --global user.email 'actions@users.noreply.github.com'
+          git commit -am "Refresh Dataset [$(date '+%F %T %z')]" 
+          git push
 
