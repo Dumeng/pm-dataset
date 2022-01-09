@@ -23,10 +23,10 @@ const getMoveInfo = async (name) => {
     }, {});
     return infoObj;
 };
-const task = async () => {
+const moveTask = async () => {
     const names = await getAllNames();
 
     const mvInfo = await Promise.all(names.map((name) => httpLimit(getMoveInfo, name)));
     await saveCSV('move', mvInfo);
 }
-export default task;
+export default moveTask;

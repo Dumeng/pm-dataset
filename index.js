@@ -1,9 +1,13 @@
-import pmTask from './tasks/pm.js';
-import abilityTask from './tasks/ability.js';
+import tasks from "./tasks/index.js";
 
 const main = async () => {
-    await pmTask();
-    await abilityTask();
+    for (const task of tasks) {
+        try {
+            await task();
+        } catch (error) {
+            console.warn(`${task.name} Failed.`);
+        }
+    }
 }
 
 main();

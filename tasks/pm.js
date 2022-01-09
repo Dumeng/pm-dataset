@@ -19,11 +19,11 @@ const getPmInfo = async (name) => {
     }, {});
     return infoObj;
 };
-const task = async () => {
+const pmTask = async () => {
     const names = await getAllPmNames();
     await saveList('pmlist', names);
 
     const pmInfo = await Promise.all(names.map((name) => httpLimit(getPmInfo, name)));
     await saveCSV('pm', pmInfo);
 }
-export default task;
+export default pmTask;

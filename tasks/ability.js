@@ -40,7 +40,7 @@ const getAbilityBlock = async (name) => {
     return infoObj;
 }
 
-const task = async () => {
+const abilityTask = async () => {
     const names = await getAllNames();
     const abInfo = (await Promise.all(
         names.map((ab, i) => Promise.all(
@@ -50,9 +50,10 @@ const task = async () => {
                 blockRes.gen = i + 3;
                 blockRes.对战外 = `"${descRes['对战外']}"`;
                 blockRes.对战中 = `"${descRes['对战中'] || descRes['對戰中']}"`;
-                blockRes.text = blockRes.text.slice(2, -2).split(';')
-                    .map(i => i.split(':'))
-                    .find(i => i[0] === 'zh-hans')[1];
+                if (blockRes.text.startsWith('-{'))
+                    blockRes.text = blockRes.text.slice(2, -2).split(';')
+                        .map(i => i.split(':'))
+                        .find(i => i[0] === 'zh-hans')[1];
                 return blockRes;
             }))
         )
@@ -61,4 +62,4 @@ const task = async () => {
     await saveCSV('ability', abInfo);
 }
 
-export default task;
+export default abilityTask;
