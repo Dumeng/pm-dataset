@@ -23,16 +23,23 @@ export const getPageBlocks = async (page) => {
     return blocks;
 }
 
-export const getCategoryMembers = async (categroy) => {
+export const getCategoryMembers = async (categroy, next) => {
     const res = await apiClient.request({
         method: 'get',
         params: {
             action: 'query',
             list: 'categorymembers',
             cmtitle: `Category:${categroy}`,
+            cmtype: 'page',
+            cmlimit: 500,
+            cmcontinue: next,
         }
     });
-    return res.data.query.categorymembers.map((i) => i.title);
+    const list = res.data.query.categorymembers.map((i) => i.title);
+    if (res.data.continue?.cmcontinue) {
+        list.push(...await getCategoryMembers(categroy, res.data.continue.cmcontinue));
+    }
+    return list;
 }
 
 export const getPageHtml = async (title) => {
