@@ -17,9 +17,18 @@ export const getPageSource = async (page) => {
 }
 
 export const getPageBlocks = async (page) => {
-    const source = await getPageSource(page);
+    const source = (await getPageSource(page))
+        // remove possible template nesting
+        .replaceAll(/{{JP\|(.*?)\|.*?}}/g, '$1')
+        .replaceAll(/{{s\|.*?}}/g, '')
+        .replaceAll(/{{game2\|.*?}}/g, '')
+        .replaceAll(/{{type\|.*?}}/g, '')
+        .replaceAll(/{{tt\|.*?}}/ig, '');
     const blocks = [...source.matchAll(/{{(.*?)}}/sg)]
-        .map(i => i[1].replaceAll('\n', '').split('|'));
+        .map(i => i[1]
+            .replaceAll('\n', '')
+            .split('|')
+            .filter(t => t));
     return blocks;
 }
 
