@@ -1,5 +1,5 @@
-import { getPageBlocks } from './wiki';
-import { saveCSV, httpLimit, saveList } from '../utils';
+import { getPageBlocks } from '../wiki.js';
+import { saveCSV, httpLimit, saveList } from '../utils.js';
 
 const getAllPmNames = async () => {
     const blocks = await getPageBlocks('宝可梦列表（按全国图鉴编号）/简单版');
@@ -19,10 +19,11 @@ const getPmInfo = async (name) => {
     }, {});
     return infoObj;
 };
-export default task = () => {
+const task = async () => {
     const names = await getAllPmNames();
     await saveList('pmlist', names);
 
     const pmInfo = await Promise.all(names.map((name) => httpLimit(getPmInfo, name)));
     await saveCSV('pm', pmInfo);
 }
+export default task;
