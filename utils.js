@@ -5,12 +5,15 @@ export const httpLimit = pLimit(10);
 
 export const saveCSV = async (name, data) => {
     const headersSet = new Set();
-    data.forEach((pm) => Object.keys(pm).forEach((i) => headersSet.add(i)));
+    data.forEach((pm) => Object.keys(pm).forEach((i) => headersSet.add(i.includes(',') ? `"${i}"` : i)));
     const headers = [...headersSet];
     const filename = `./dataset/${name}.csv`;
     await writeFile(filename, headers.join() + '\n');
     await Promise.all(data.map((item) => appendFile(filename,
-        headers.map((i) => item[i]).join() + '\n'
+        headers.map((i) => {
+            const value = item[i] || '';
+            return (value.includes(',') || value.includes('\n')) ? `"${value}"` : value
+        }).join() + '\n'
     )));
 };
 

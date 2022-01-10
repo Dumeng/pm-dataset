@@ -19,7 +19,6 @@ export const getPageSource = async (page) => {
 export const getPageBlocks = async (page) => {
     const source = (await getPageSource(page))
         // remove possible template nesting
-        .replaceAll(/<!--.*?-->/g, '')
         .replaceAll(/{{JP\|(.*?)\|.*?}}/g, '$1')
         .replaceAll(/{{a\|(.*?)\|.*?}}/g, '$1')
         .replaceAll(/{{s\|.*?}}/g, '')
@@ -27,7 +26,11 @@ export const getPageBlocks = async (page) => {
         .replaceAll(/{{game2\|.*?}}/g, '')
         .replaceAll(/{{type\|.*?}}/g, '')
         .replaceAll(/{{tt\|.*?}}/ig, '')
-        .replaceAll(/\[\[(.*?)\|?.*?\]\]/g, '');
+        .replaceAll(/<!--.*?-->/sg, '')
+        .replaceAll(/<br>/g, '')
+        .replaceAll(/<span.*?>(.*?)<\/span>/sg, '$1')
+        .replaceAll(/\[\[(.*?)(\|.*?)?\]\]/g, '$1')
+        .replaceAll(/\&mdash/g, '-');
     const blocks = [...source.matchAll(/{{(.*?)}}/sg)]
         .map(i => i[1]
             .replaceAll('\n', '')
@@ -36,23 +39,28 @@ export const getPageBlocks = async (page) => {
     return blocks;
 }
 
-export const findPageBlockByName = async (page) => {
-    const removedTag = ['a', 's', 'game', 'game2', 'tt', 'type'];
+export const findPageBlockByName = async (page, name) => {
+    const removedTag = ['s', 'game', 'game2', 'tt', 'type'];
     removedTag.map(t => new RegExp('{{s\|.*?}}', 'ig'));
     const source = await getPageSource(page)
         .then(text =>
             // remove possible template nesting
-            removedTag.map(t => new RegExp('{{s\|.*?}}', 'ig'))
+            removedTag.map(rs => new RegExp(`{{${rs}\|.*?}}`, 'ig'))
+                .replaceAll(/\[\[(.*?)\|?.*?\]\]/g, '')
                 .reduce((t, re) => t.replaceAll(re, ''), text)
                 .replaceAll(/{{JP\|(.*?)\|.*?}}/g, '$1')
         );
-
-    const blocks = [...source.matchAll(/{{(.*?)}}/sg)]
-        .map(i => i[1]
-            .replaceAll('\n', '')
-            .split('|')
-            .filter(t => t));
-    return blocks;
+    if (Array.isArray(name)) {
+        name = name.find(n => source.includes(`{{${n}`));
+    }
+    if (!name) {
+        return null;
+    }
+    const block = source.match(/{{(.*?)}}/s)[1]
+        .replaceAll('\n', '')
+        .split('|')
+        .filter(t => t);
+    return block;
 }
 
 export const getCategoryMembers = async (categroy, next) => {

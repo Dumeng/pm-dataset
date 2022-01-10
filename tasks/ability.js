@@ -48,8 +48,8 @@ const abilityTask = async () => {
                 const descRes = await httpLimit(getAbilityDesc, name);
                 const blockRes = await httpLimit(getAbilityBlock, name);
                 blockRes.gen = i + 3;
-                blockRes.对战外 = `"${descRes['对战外']}"`;
-                blockRes.对战中 = `"${descRes['对战中'] || descRes['對戰中']}"`;
+                blockRes.对战外 = descRes['对战外'];
+                blockRes.对战中 = descRes['对战中'] || descRes['對戰中'];
                 if (blockRes.text.startsWith('-{'))
                     blockRes.text = blockRes.text.slice(2, -2).split(';')
                         .map(i => i.split(':'))
