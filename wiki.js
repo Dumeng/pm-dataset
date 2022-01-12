@@ -26,7 +26,7 @@ export const getPageBlocks = async (page) => {
         .replaceAll(/{{game2\|.*?}}/g, '')
         .replaceAll(/{{type\|.*?}}/g, '')
         .replaceAll(/{{tt\|.*?}}/ig, '')
-        .replaceAll(/{{Toggle\|.*?}}/ig, '')
+        .replaceAll(/{{Toggle\|.*?}}/ig, '$1;')
         .replaceAll(/<!--.*?-->/sg, '')
         .replaceAll(/<br>/g, '')
         .replaceAll(/<span.*?>(.*?)<\/span>/sg, '$1')
