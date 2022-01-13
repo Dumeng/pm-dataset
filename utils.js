@@ -11,7 +11,7 @@ export const saveCSV = async (name, data) => {
     await writeFile(filename, headers.join() + '\n');
     await Promise.all(data.map((item) => appendFile(filename,
         headers.map((i) => {
-            const value = item[i] || '';
+            const value = (item[i] || '').toString();
             return (value.includes(',') || value.includes('\n')) ? `"${value}"` : value
         }).join() + '\n'
     )));
