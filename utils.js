@@ -1,4 +1,5 @@
-import { writeFile, appendFile } from 'fs/promises';
+import { createWriteStream } from 'fs';
+import { writeFile } from 'fs/promises';
 import pLimit from 'p-limit';
 
 export const httpLimit = pLimit(10);
@@ -8,13 +9,15 @@ export const saveCSV = async (name, data) => {
     data.forEach((pm) => Object.keys(pm).forEach((i) => headersSet.add(i.includes(',') ? `"${i}"` : i)));
     const headers = [...headersSet];
     const filename = `./dataset/${name}.csv`;
-    await writeFile(filename, headers.join() + '\n');
-    await Promise.all(data.map((item) => appendFile(filename,
+    const csvFile = createWriteStream(filename, { flags: 'w' });
+    csvFile.write(headers.join() + '\n');
+    data.map((item) => csvFile.write(
         headers.map((i) => {
             const value = (item[i] || '').toString();
             return (value.includes(',') || value.includes('\n')) ? `"${value}"` : value
         }).join() + '\n'
-    )));
+    ));
+    csvFile.end();
 };
 
 export const saveList = async (name, data) => {
