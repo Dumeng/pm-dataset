@@ -21,16 +21,22 @@ export const getPageBlocks = async (page) => {
         // remove possible template nesting
         .replaceAll(/{{JP\|(.*?)\|.*?}}/g, '$1')
         .replaceAll(/{{a\|(.*?)\|.*?}}/g, '$1')
+        .replaceAll(/{{S\|(.*?)}}/g, '$1')
+        .replaceAll(/{{wp\|(.*?)\|(.*?)}}/g, '$2')
+        .replaceAll(/{{wp\|(.*?)}}/g, '$1')
+        .replaceAll(/{{frac\|(.*?)\|(.*?)}}/g, '$1/$2')
         .replaceAll(/{{s\|.*?}}/g, '')
+        .replaceAll(/{{!}}/g, '')
         .replaceAll(/{{game\|.*?}}/g, '')
         .replaceAll(/{{game2\|.*?}}/g, '')
         .replaceAll(/{{type\|.*?}}/g, '')
         .replaceAll(/{{tt\|.*?}}/ig, '')
-        .replaceAll(/{{Toggle\|.*?}}/ig, '$1;')
+        .replaceAll(/{{Toggle\|+.*?}}/ig, '$1;')
         .replaceAll(/<!--.*?-->/sg, '')
         .replaceAll(/<br>/g, '')
         .replaceAll(/<span.*?>(.*?)<\/span>/sg, '$1')
-        .replaceAll(/\[\[(.*?)(\|.*?)?\]\]/g, '$1')
+        .replaceAll(/\[\[.*?\|(.*?)\]\]/g, '$1')
+        .replaceAll(/\[\[(.*?)\]\]/g, '$1')
         .replaceAll(/\&mdash/g, '-');
     const blocks = [...source.matchAll(/{{(.*?)}}/sg)]
         .map(i => i[1]
@@ -38,6 +44,20 @@ export const getPageBlocks = async (page) => {
             .split('|')
             .filter(t => t));
     return blocks;
+}
+export const getPageBlocks2 = async (source) => {
+    const blocks = [...source.matchAll(/{{([^\|\}]+?)/g)].map((i) => ({ name: i[1], start: i.index }));
+    const endIdx = [...source.matchAll(/}}/g)].map(i => i.index);
+    let offset1 = 0, offset2 = 0
+    while (offset2 < endIdx.length) {
+        if (!stack.length || blocks[offset1]?.start < endIdx[offset2]) {
+            stack.push(offset1);
+            offset1 += 1;
+        } else {
+            blocks[stack.pop()].end = endIdx[offset2];
+            offset2 += 1;
+        }
+    }
 }
 
 export const findPageBlockByName = async (page, name) => {

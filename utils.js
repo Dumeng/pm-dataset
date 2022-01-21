@@ -13,7 +13,7 @@ export const saveCSV = async (name, data) => {
     csvFile.write(headers.join() + '\n');
     data.map((item) => csvFile.write(
         headers.map((i) => {
-            const value = (item[i] || '').toString();
+            const value = (item[i] || '').toString().trim();
             return (value.includes(',') || value.includes('\n')) ? `"${value}"` : value
         }).join() + '\n'
     ));
