@@ -1,4 +1,4 @@
-bag,name,sprite,sprite2,occasion,once,bag2,throw,gen,game,rgby,gsc,rse,frlg,dppt,hgss,bwb2w2,xyoras,smusum,lple,swsh,bdsp,effect,xy,oras,sv,lp,sprite3,class3,sprite4,class4,img,size,la,class2,swshe,section,section1,球果盒,held,bw,b2w2,lg,rgb,p,pt,ru,ss,sa,hg,d,bd,sp,m,usum,w,w2,b,b2,class,e,tcg,sm,5b,bwb2y2,snum,basis,pluck,bugbite,type,power,color,bnum,rs,sprite5,class5,jpname,enname,section2,class6,sprite6,sprite7,class7,rg,c,or,dp,spritesize,as,s,us,um,class1,sc,v
+bag,name,sprite,sprite2,occasion,once,bag2,throw,gen,game,rgby,gsc,rse,frlg,dppt,hgss,bwb2w2,xyoras,smusum,lple,swsh,bdsp,effect,xy,oras,sv,lp,sprite3,class3,sprite4,class4,img,size,la,class2,swshe,section,section1,球果盒,held,bw,b2w2,lg,rgb,p,pt,ru,ss,sa,hg,d,bd,sp,m,usum,w,w2,b,b2,class,e,tcg,sm,5b,bwb2y2,snum,basis,pluck,bugbite,type,power,color,bnum,rs,sprite5,class5,jpname,enname,section2,sprite6,class6,sprite7,class7,rg,c,or,dp,spritesize,as,s,us,um,class1,sc,v
 道具,除虫喷雾,Bag 除虫喷雾 Sprite.png,Dream 除虫喷雾 Sprite.png30px,out,y,道具,30,1,{{道具信息框/game,y,y,y,y,y,y,y,y,y,y,y,y,"使用后在100步之内不会遇见比同行宝可梦中第一只宝可梦等级低的野生宝可梦。
 不过在《劍／盾》，只有隐藏的宝可梦会消失，会遇到可见的宝可梦。",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 道具,白银喷雾,Bag 白银喷雾 Sprite.png,Dream 白银喷雾 Sprite.png30px,out,y,道具,30,,{{道具信息框/game,y,y,y,y,y,y,y,y,y,y,y,y,使用后在200步之内不会遇见比同行宝可梦中第一只宝可梦等级低的野生宝可梦。,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -502,7 +502,7 @@ bag,name,sprite,sprite2,occasion,once,bag2,throw,gen,game,rgby,gsc,rse,frlg,dppt
 >> 对战外 狃拉携带该道具夜晚等级提升进化为 玛狃拉。
 夜晚对狃拉使用，使其进化为 玛狃拉LA。
 白天对狃拉（洗翠的样子）使用，使其进化为大狃拉LA。",y,y,y,,Bag 锐利之爪 Sprite.png,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-道具,,Bag 锐利之牙 LA Sprite.png30px,Dream 锐利之牙 Sprite.png30px,,,道具,,,{{道具信息框/game,,,,,y,y,y,,y,,,y,">> 对战中携带该道具的宝可梦使用任意原本不会造成畏缩状态的攻击招式并造成伤害时，有10%几率使目标陷入畏缩状态。
+道具,,Bag 锐利之牙 LA Sprite.png30px,Dream 锐利之牙 Sprite.png30px,,,道具、其他道具,,,{{道具信息框/game,,,,,y,y,y,,y,,,y,">> 对战中携带该道具的宝可梦使用任意原本不会造成畏缩状态的攻击招式并造成伤害时，有10%几率使目标陷入畏缩状态。
 连续招式每一下连续的攻击都会有相同的几率造成对手畏缩。
 >> 对战外 天蝎携带该道具夜晚等级提升进化为 天蝎王。
 夜晚对 天蝎使用，使其进化为 天蝎王LA。",y,y,,,Bag 锐利之牙 Sprite.png,道具,,,,,yes,道具,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -2368,7 +2368,7 @@ Q = 己方宝可梦等级⁄野生宝可梦等级",,,y,,Bag 等级球 Sprite.png
 重要物品,,Bag 兑换券 Sprite.png30px,,,,重要物品,,,{{道具信息框/game,y,,,y,,,,,,,,,可在华蓝市的奇迹自行车店兑换一辆自行车。,,,,,,,,,兑换券 RG.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 重要物品,金假牙,Bag 金假牙 Sprite.png,Bag 金假牙 III Sprite.png,no,,道具、重要物品,,,{{道具信息框/game,y,,,y,,,,,,Y,,,将它还给狩猎地带的园长巴奥巴后可以得到秘傳學習器０４（怪力）RGBYFRLG／学习推山掌LPLE。,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 重要物品,电梯钥匙,Bag 电梯钥匙 VII Sprite.png,Bag 电梯钥匙 III Sprite.png,no,,,,,{{道具信息框/game,y,,,y,,,,,,y,,,,,,,,,,,,电梯钥匙 RG.png,85px,,,,1,电梯钥匙（关都）,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,电梯钥匙（卡洛斯）,,,,,,,,,,,,,,,,
-重要物品,,Bag 自行车 Sprite.png,Bag 自行车G Sprite.png,out,,,,,{{道具信息框/game,y,y,,y,y,y,y,,,,,y,,y,,,,Bag 自行车G XY Sprite.png,,Bag 自行车 BDSP Sprite.png30px,神奥,Key 自行车 Sprite.png,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Bag 自行车 红色 BDSP Sprite.png30px,神奥,,,,神奥,Bag 自行车 黄色 BDSP Sprite.png30px,Bag 自行车 绿色 BDSP Sprite.png30px,神奥,,,,,,,,,,,,
+重要物品,,Bag 自行车 Sprite.png,Bag 自行车G Sprite.png,out,,,,,{{道具信息框/game,y,y,,y,y,y,y,,,,,y,,y,,,,Bag 自行车G XY Sprite.png,卡洛斯,Bag 自行车 BDSP Sprite.png30px,神奥,Key 自行车 Sprite.png,,,丰缘,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Bag 自行车 红色 BDSP Sprite.png30px,神奥,,,,Bag 自行车 黄色 BDSP Sprite.png30px,神奥,Bag 自行车 绿色 BDSP Sprite.png30px,神奥,,,,,,,,,,,,
 重要物品,,Bag 城镇地图 VII Sprite.png,Bag 城镇地图 IV Sprite.png,out,,,,,{{道具信息框/game,y,y,,y,y,y,y,,,y,,,"可以查看当前主角所处的位置。
 可以查看各个城镇的信息。
 获得后，可在对战外通过主菜单打开地图。BDSP
@@ -3503,7 +3503,7 @@ Let's Go！皮卡丘Let's Go！伊布
 重要物品,,Bag 大木的信 BDSP Sprite.png30px,Bag 大木的信 Sprite.png30px,,,重要物品,,,{{道具信息框/game,,,,,,,,,,,,yes,大木博士会如约出现在２２４号道路尽头。根据大木博士指导在白色岩石上刻下感谢的话语后，谢米就会出现。然後可以進入破海之路及花之樂園。,,,,,,,,,大木的信 Pt.png85px,,,,,,,,,,,,,,y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 重要物品,,Bag 新月之羽 BDSP Sprite.png30px,Bag 新月之羽 Sprite.png30px,,,重要物品,,,{{道具信息框/game,,,,,y,,,,,,,yes,"唤醒水脈市做噩梦的波木的儿子。DPPt
 在奇幻桥召唤克雷色利亞。B2W2《鑽石／珍珠／白金》",,,,,,,,,Key 新月之羽 Sprite.png85px,,,重要物品,,,,,,,y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-重要物品,,Bag 會員卡 BDSP Sprite.png30px,Bag 會員卡 Sprite.png30px,,,重要物品,,,{{道具信息框/game,,,,,,,,,,,,yes,"进入水脉市的旅馆。
+重要物品,,Bag 会员卡 BDSP Sprite.png30px,Bag 会员卡 Sprite.png30px,,,重要物品,,,{{道具信息框/game,,,,,,,,,,,,yes,"进入水脉市的旅馆。
 在这之后主角会睡着，并在梦中来到出现达克莱伊的新月岛。",,,,,,,,,會員卡 DPPt.png85px,,,,,,,,,,,,,,y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 重要物品,天界之笛,Bag 天界之笛 LA Sprite.png30px,Bag 天界之笛 BDSP Sprite.png30px,out,,重要物品,,,{{道具信息框/game,,,,,,,,,,,,y,"获得全国图鉴后，在枪之柱吹奏天界之笛后可以前往起始之殿。（必須先捕捉帝牙盧卡DPtBD或帕路奇亞PPtSP。）
 召喚宝可骑行。LA
